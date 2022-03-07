@@ -1,0 +1,25 @@
+.inicio{
+    position: fixed;
+    left: 0;
+}
+
+.inicio--figure{
+    width: 100vw;
+    height: 90.5vh;
+    margin: 0;
+}
+
+.inicio--figure--img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.inicio--login{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    top: -30px;
+    left: 100px;
+}

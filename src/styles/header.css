@@ -1,0 +1,23 @@
+header{
+    text-align: center;
+    background-color: #081C39;
+}
+
+.header--title{
+    color: red;
+    margin: 0;
+    font-size: 34px;
+}
+
+.header--li{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.header--li li{
+    color: black;
+    margin: 0rem .5rem;
+}

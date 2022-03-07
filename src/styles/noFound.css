@@ -1,0 +1,19 @@
+.NoFound{
+    text-align: center;
+    color: red;
+}
+.NoFound--img{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.NoFound figure{
+    width: 300px; ;
+}
+
+.NoFound img{
+    width: 100%;
+    height: 100%;
+}
