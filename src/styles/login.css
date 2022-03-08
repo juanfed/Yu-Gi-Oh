@@ -24,10 +24,11 @@
 
 .login--input {
     border-radius: 15px;
-    width: 319px;
+    width: 300px;
     height: 45px;
     font-size: 22px;
     margin-bottom: 25px;
+    padding: 0rem 1rem;
 }
 
 .login--buton{

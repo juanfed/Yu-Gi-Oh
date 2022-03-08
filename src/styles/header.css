@@ -9,6 +9,10 @@ header{
     font-size: 34px;
 }
 
+.header--title:hover{
+   cursor: pointer;
+}
+
 .header--li{
     list-style: none;
     display: flex;
