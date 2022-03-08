@@ -4,7 +4,8 @@ import '../styles/footer.css';
 const Footer = () => {
     return (
         <footer className='footer'>
-            <h3>Footer</h3>
+            <p>Contacto: YuGiOh2022.com</p>
+            <p>Derechos reservados © 2022 Yu-Gi-Oh!</p>
         </footer>
     )
 }
