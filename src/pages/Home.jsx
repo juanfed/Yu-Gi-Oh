@@ -3,7 +3,7 @@ import Login from '../components/Login';
 import imagenFondo from '../images/img1.jpg';
 import '../styles/inicio.css';
 
-const Inicio = () => {
+const Home = () => {
     return (
         <main className='inicio'>
             <figure className='inicio--figure'>
@@ -16,4 +16,4 @@ const Inicio = () => {
     )
 }
 
-export default Inicio
+export default Home
