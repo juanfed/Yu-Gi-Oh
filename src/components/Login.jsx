@@ -1,6 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import '../styles/login.css';
 import google from '../assets/loginGoogle.png';
+import Poopup from './Poopup';
+
+
 
 
 //trabajo con el login usando la autenticacion de google y facebook
@@ -16,6 +19,17 @@ const Login = () => {
 	const responseFacebook = (response) => {
 		console.log(response);
 	}
+
+	const [mostrar, setMostrar] = useState(false)
+	 
+	const singUp = () =>{
+		if(mostrar){
+			return setMostrar(false) 
+		} else{
+			return setMostrar(true) 
+		}
+	}
+	
 	return (
 		<div className='login'>
 			<h4 className='login--title'>User Login</h4>
@@ -61,7 +75,10 @@ const Login = () => {
 			</div>
 			<div className='register'>
 				<p>Don't have an account?</p>
-				<h4>Sing Up</h4>
+				<button onClick={singUp} data-toggle="modal">Sing Up</button>
+			</div>
+			<div>
+				{(mostrar) ? (alert(<Poopup/>)) : null}
 			</div>
 		</div>
 	)
