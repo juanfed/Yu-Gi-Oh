@@ -1,0 +1,43 @@
+header{
+    text-align: center;
+    background-color: #0D1B1E;
+}
+
+.header{
+    display: grid;
+    grid-template-areas: "title title title title title  title buton";
+    
+}
+
+.header--title{
+    grid-area: title;
+    color: white;
+    margin: 0;
+    margin-left: 18rem;
+    font-size: 34px;
+}
+
+.header--title:hover{
+    cursor: pointer;
+}
+
+.header--buton{
+    grid-area: buton;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+
+.header--buton--buton{
+    width: 100%;
+    height: 100%;
+    font-size: 1.2rem;
+    background-color: #AB4995 ;
+    color: white;
+    font-weight: 600;
+    border-radius: 10px ;
+    width: 128px;
+    height: 33px;
+    margin-right: 1rem;
+}
