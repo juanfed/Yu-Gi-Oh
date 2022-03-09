@@ -3,14 +3,18 @@ import '../styles/login.css';
 import google from '../assets/loginGoogle.png';
 
 
-//trabajo con el login usando la autenticacion de google
+//trabajo con el login usando la autenticacion de google y facebook
 import GoogleLogin from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
 
 const Login = () => {
 	const responseGoogle = (sucsess) => {
 		console.log(sucsess);
 		console.log(sucsess.profileObj);
+	}
 
+	const responseFacebook = (response) => {
+		console.log(response);
 	}
 	return (
 		<div className='login'>
@@ -33,10 +37,10 @@ const Login = () => {
 					render={renderProps => (
 						<div>
 							<figure className='google--figure'>
-								<img 
-								disabled={renderProps.disabled}
-								onClick={renderProps.onClick}
-								src={google} alt="Login whit google" />
+								<img
+									disabled={renderProps.disabled}
+									onClick={renderProps.onClick}
+									src={google} alt="Login whit google" />
 							</figure>
 						</div>
 
@@ -45,6 +49,15 @@ const Login = () => {
 					onFailure={responseGoogle}
 					cookiePolicy={'single_host_origin'}
 				/>
+
+				<FacebookLogin
+					appId="249526474055454"
+					autoLoad={false}
+					fields="name,email,picture"
+					callback={responseFacebook}
+					textButton=" Sign up with Facebook"
+					icon="fa-facebook"
+					cssClass='facebook'/>
 			</div>
 			<div className='register'>
 				<p>Don't have an account?</p>
