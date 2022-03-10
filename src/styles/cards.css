@@ -1,11 +1,22 @@
+.cards{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 75px 20px;
+    border: 2px solid rebeccapurple;
+}
+
 .card{
     display: flex;
     flex-direction: column;
     background-color: #C4C4C4;
-    height: 260px;
-    width: 160px;
-    
+    height: 200px;
+    width: 120px;
 }
+
+/* .card--figure img:active{
+    transform: scale(2);
+    
+} */
 
 .card--figure{
     height: 260px;
