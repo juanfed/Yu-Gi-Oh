@@ -1,0 +1,18 @@
+.card{
+    display: flex;
+    flex-direction: column;
+    background-color: #C4C4C4;
+    height: 260px;
+    width: 160px;
+    
+}
+
+.card--figure{
+    height: 260px;
+    width: 160px;
+}
+
+.card--figure img{
+    width: auto;
+    height: 100%;
+}
