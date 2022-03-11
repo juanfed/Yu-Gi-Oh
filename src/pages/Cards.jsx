@@ -1,40 +1,38 @@
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../styles/cards.css';
 // import fondoCards from '../assets/img7.jpg';
 
-function Cards(){
-	const [datoCard, setDatoCard] = useState([999]);
-	// cartas aleatorias
+function Cards() {
+	const [datoCard, setDatoCard] = useState([]);
 	const [array, setArray] = useState([])
-	console.log(array);
-	
-	const [resultado, setResultado] = useState('');
-	useEffect(() => {
+
+	const consultar = () => {
 		let arrays = [];
 		for (let i = 0; i < 8; i++) {
 			let numero = Math.round(Math.random() * 9000);
 			arrays.push(numero)
 		}
 		setArray(arrays);
+	}
+
+	const [resultado, setResultado] = useState('');
+	useEffect(() => {
 		const traerCarta = async () => {
 			const result = await axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php`)
 			setResultado(result);
 		}
-
 		traerCarta()
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
 	const mostrarDatos = (card) => {
 		setDatoCard(card)
-		console.log(datoCard);
 	}
-
 	return (
 		<main className='main--cards'>
 			<div className='main--cards--buton'>
-				<button>Generar cartas aleatorias</button>
+				<button onClick={consultar}>Generar cartas aleatorias</button>
 			</div>
 
 			<div className='contenedor--cards'>
@@ -59,7 +57,7 @@ function Cards(){
 								className='select--card--figure--img'
 								alt={resultado.data?.data[datoCard].name} />
 						</figure>
-						<button onClick={mostrarDatos}>Agregar</button>
+						<button className='select--card--buton'>Agregar carta</button>
 					</div>
 
 				</section>
@@ -74,4 +72,4 @@ function Cards(){
 }
 
 
-export default React.memo(Cards)
+export default Cards;
