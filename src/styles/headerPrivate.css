@@ -15,6 +15,25 @@ header{
     margin: 0;
     margin-left: 18rem;
     font-size: 34px;
+    
+}
+
+@media(max-width:1600px){
+    .header--title{
+        margin-left: 14rem;
+    }
+}
+
+@media(max-width:1000px){
+    .header--title{
+        margin-left: 12rem;
+    }
+}
+
+@media(max-width:600px){
+    .header--title{
+        margin-left: 7rem;
+    }
 }
 
 .header--title:hover{

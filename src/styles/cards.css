@@ -1,29 +1,68 @@
+.main--cards{
+    background-image: url("../images/img7.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    text-align: center;
+}
+
+.contenedor--cards{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding-bottom: 5rem;
+    margin-top: 2rem;
+}
+
+.main--cards--buton{
+    padding-top: 1.2rem;
+    margin-right: 34%;
+}
+
+.main--cards--buton button{
+    font-size: 1.2rem;
+    padding: .5rem 1rem;
+    border-radius: 20px;
+    background-color: #081C39;
+    color: white;
+    font-weight: 600;
+}
+
+
 .cards{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 75px 20px;
-    border: 2px solid rebeccapurple;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 200px));
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
 }
 
 .card{
     display: flex;
-    flex-direction: column;
-    background-color: #C4C4C4;
-    height: 200px;
-    width: 120px;
+    justify-content: center;
+    align-items: center;
 }
 
-/* .card--figure img:active{
-    transform: scale(2);
-    
-} */
 
-.card--figure{
-    height: 260px;
-    width: 160px;
+.card--figure--img{
+    height: 100%;
+    width: 100%;
 }
 
-.card--figure img{
-    width: auto;
+
+.select--card{
+    margin-top: 1rem;
+}
+
+.select--card--figure{
+    display: flex;
+    width: 380px;
+    height: 550px;
+    background-color: #ededed;
+}
+
+.select--card--figure--img{
+    width: 100%;
     height: 100%;
 }
