@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../styles/cards.css';
+import carta from '../images/reverseCard.jpg';
 // import fondoCards from '../assets/img7.jpg';
 
 function Cards() {
-	const [datoCard, setDatoCard] = useState([]);
+	const [misCards, setMisCards] = useState([]);
+	const [datoCard, setDatoCard] = useState();
 	const [array, setArray] = useState([])
 
 	const consultar = () => {
@@ -29,6 +31,11 @@ function Cards() {
 	const mostrarDatos = (card) => {
 		setDatoCard(card)
 	}
+
+	const agregarCard = (datoCard) =>{
+		setMisCards([...misCards, datoCard]);
+	}
+	console.log(misCards);
 	return (
 		<main className='main--cards'>
 			<div className='main--cards--buton'>
@@ -53,11 +60,13 @@ function Cards() {
 				<section className='select--card'>
 					<div className='select--card--div'>
 						<figure className='select--card--figure'>
-							<img src={resultado.data?.data[datoCard].card_images[0].image_url}
+							{ datoCard ? (<img src={resultado.data?.data[datoCard].card_images[0].image_url}
 								className='select--card--figure--img'
-								alt={resultado.data?.data[datoCard].name} />
+								alt={resultado.data?.data[datoCard].name} />):(<img src={carta}
+								className='select--card--figure--img'
+								alt="sin imagen" />) }
 						</figure>
-						<button className='select--card--buton'>Agregar carta</button>
+						<button className='select--card--buton' onClick={() => {agregarCard(datoCard)}}>Agregar carta</button>
 					</div>
 
 				</section>
@@ -65,11 +74,7 @@ function Cards() {
 				<br /><br /><br /><br />
 
 			</div>
-
-
 		</main>
 	)
 }
-
-
 export default Cards;
