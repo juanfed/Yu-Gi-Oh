@@ -6,15 +6,20 @@ import google from '../assets/loginGoogle.png';
 //trabajo con el login usando la autenticacion de google y facebook
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
-
+import { useNavigate} from "react-router-dom" // version 6
 const Login = () => {
+	useNavigate();
+	const navigate = useNavigate();
 	const responseGoogle = (sucsess) => {
 		console.log(sucsess);
 		console.log(sucsess.profileObj);
+		navigate('/admin/cards');
+
 	}
 
 	const responseFacebook = (response) => {
 		console.log(response);
+		navigate('/admin/cards');
 	}
 	return (
 		<div className='login'>

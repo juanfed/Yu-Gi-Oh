@@ -13,7 +13,7 @@ header{
     grid-area: title;
     color: white;
     margin: 0;
-    margin-left: 18rem;
+    margin-left: 20rem;
     font-size: 34px;
     
 }
@@ -59,4 +59,17 @@ header{
     width: 128px;
     height: 33px;
     margin-right: 1rem;
+}
+
+.header--menu{
+    text-align: center;
+    font-size: 1.2rem;
+    background-color:#0D1B1E;
+    padding-bottom: .5rem;
+}
+.header--menu li{
+    display: inline-block;
+    margin: 0rem 1rem;
+
+    color: white;
 }
