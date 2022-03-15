@@ -1,5 +1,4 @@
-let mostrarCata = [false,false,false,false,false,false,false,false,false];
+let cartas = [999, 9999, 8520, 7530, 5456, 605, 7898];
 
-mostrarCata[2] = true;
-console.log(mostrarCata[2])
-console.log(mostrarCata[5])
+const nuevasCartas = cartas.filter(x => !x );
+console.log(nuevasCartas)

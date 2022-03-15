@@ -28,7 +28,7 @@
     height: 600px;
 }
 
-.carta1{
+.carta0{
     position: absolute;
     width: 300px;
     background-color: rebeccapurple;
@@ -38,7 +38,7 @@
     
 }
 
-.carta2{
+.carta1{
     position: absolute;
     width: 300px;
     background-color: red;
@@ -48,7 +48,7 @@
     margin-top: 2rem;
     border-radius: 10px;
 }
-.carta3{
+.carta2{
     position: absolute;
     width: 300px;
     background-color: gray;
@@ -58,7 +58,7 @@
     margin-top: 2rem;
     border-radius: 10px;
 }
-.carta4{
+.carta3{
     position: absolute;
     width: 300px;
     background-color: gold;
@@ -68,7 +68,7 @@
     margin-top: 4rem;
     border-radius: 10px;
 }
-.carta5{
+.carta4{
     position: absolute;
     width: 300px;
     background-color: salmon;
@@ -78,7 +78,7 @@
     margin-top: 4rem;
     border-radius: 10px;
 }
-.carta6{
+.carta5{
     position: absolute;
     width: 300px;
     background-color: chartreuse;
@@ -88,7 +88,7 @@
     margin-top: 6rem;
     border-radius: 10px;
 }
-.carta7{
+.carta6{
     position: absolute;
     width: 300px;
     background-color: rgb(0, 0, 0);
