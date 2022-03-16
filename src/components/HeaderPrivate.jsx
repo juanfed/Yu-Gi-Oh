@@ -17,7 +17,7 @@ const HeaderPrivate = () => {
             <Link to="/admin/mycards"><li>Mis cartas</li></Link>
             <Link to="/admin/cards"><li>Generador de Cartas</li></Link>
             <Link to="#"><li>Perfil</li></Link>
-            <Link to="#"><li>Contacto</li></Link>
+            <Link to="/admin/contact"><li>Contacto</li></Link>
         </ul>
         </>
     )

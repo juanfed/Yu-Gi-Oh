@@ -10,6 +10,7 @@ import NoFound from './components/NoFound';
 import Cards from './pages/Cards';
 import Private from './Layouts/Private';
 import MyCards from './pages/MyCards';
+import Contact from './pages/Contact';
 // import { fakeAuthProvider } from "./auth";
 
 
@@ -23,7 +24,7 @@ ReactDOM.render(
         <Route path='/admin' element={<Private />} >
           <Route path='/admin/cards' element={<Cards />} />
           <Route path='/admin/mycards' element={<MyCards />} />
-          
+          <Route path='/admin/contact' element={<Contact />} />
         </Route>
         <Route path='*' element={<NoFound />} />
       </Routes>
