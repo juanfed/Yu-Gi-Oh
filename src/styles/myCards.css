@@ -118,3 +118,15 @@
 .carta:active{
     transform: rotateY(180deg);
 }
+
+.botones{
+    font-size: 1.5rem;
+    
+    display: flex;
+    flex-direction: column;
+}
+
+.botones button{
+    margin: .5rem;
+    padding: .2rem;
+}

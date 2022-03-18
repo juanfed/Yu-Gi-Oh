@@ -6,7 +6,10 @@ import Card from '../components/Card';
 
 
 const MyCards = () => {
-	const [cartas, setCartas] = useState([989, 8999, 8520, 7530, 5456, 605, 7898])
+	const [cartas, setCartas] = useState([])
+
+
+
 	const [resultado, setResultado] = useState([]);
 	const [captura, setCaptura] = useState('')
 
@@ -18,20 +21,30 @@ const MyCards = () => {
 		traerCarta()
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
-	
-	const eliminarCarta = (captura) =>{
-		let array =  cartas.filter(x => x !== Number(captura)); 
+
+	const eliminarCarta = (captura) => {
+		let array = cartas.filter(x => x !== Number(captura));
 		setCartas(array)
 		console.log(`array: ${array}`)
 		console.log(`carta capturada: ${captura}`);
 	}
-	
-	const capturarCarta = e =>{
+
+	const capturarCarta = e => {
 		setCaptura(e.target.value)
 	}
 	// evito la recarga de la pagina
 	function handleSubmit(e) {
 		e.preventDefault();
+	}
+
+	const agregar = () => {
+		setCartas(Object.values(localStorage));
+		console.log(cartas);
+	}
+
+	const borrarCartas = () => {
+		setCartas([]);
+		localStorage.clear();
 	}
 	return (
 		<main className='mycards'>
@@ -39,18 +52,22 @@ const MyCards = () => {
 			<section className='cartas'>
 				{cartas.map((carta, indice) => (
 					<Fragment key={indice}>
-						<Card carta={carta} resultado={resultado} cartaReverse={cartaReverse} indice={indice}/>
-				</Fragment>
+						<Card carta={carta} resultado={resultado} cartaReverse={cartaReverse} indice={indice} />
+					</Fragment>
 				))}
 			</section>
 			<form className='formulario' onSubmit={handleSubmit}>
 				<select onChange={capturarCarta}>
 					<option value="">-- Seleccionar carta --</option>
-					{cartas.map((carta) =>(
+					{cartas.map((carta) => (
 						<option key={carta} value={carta}>{resultado.data?.data[carta].name}</option>
 					))}
 				</select>
-				<button onClick={()=>{eliminarCarta(captura)}} >Eliminar carta</button>
+				<div className='botones'>
+					<button onClick={() => { eliminarCarta(captura) }} >Eliminar carta</button>
+					<button type='text' onClick={agregar}>Mostrar cartas</button>
+					<button type='text' onClick={borrarCartas}>Vaciar mazo</button>
+				</div>
 			</form>
 		</main>
 	)

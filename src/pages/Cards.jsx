@@ -34,6 +34,7 @@ function Cards() {
 
 	const agregarCard = (datoCard) => {
 		setMisCards([...misCards, datoCard]);
+		localStorage.setItem(datoCard, datoCard);
 	}
 	console.log(misCards);
 	return (
@@ -68,7 +69,9 @@ function Cards() {
 						</figure>
 						<button className='select--card--buton' onClick={() => { agregarCard(datoCard) }}>Agregar carta</button>
 					</div>
-
+									{/* <button onClick={()=>{
+										localStorage.clear()
+									}}>Vaciar local store</button> */}
 				</section>
 
 				<br /><br /><br /><br />
