@@ -32,7 +32,7 @@ function Cards() {
 		setDatoCard(card)
 	}
 
-	const agregarCard = (datoCard) =>{
+	const agregarCard = (datoCard) => {
 		setMisCards([...misCards, datoCard]);
 	}
 	console.log(misCards);
@@ -60,13 +60,13 @@ function Cards() {
 				<section className='select--card'>
 					<div className='select--card--div'>
 						<figure className='select--card--figure'>
-							{ datoCard ? (<img src={resultado.data?.data[datoCard].card_images[0].image_url}
+							{datoCard ? (<img src={resultado.data?.data[datoCard].card_images[0].image_url}
 								className='select--card--figure--img'
-								alt={resultado.data?.data[datoCard].name} />):(<img src={carta}
-								className='select--card--figure--img'
-								alt="sin imagen" />) }
+								alt={resultado.data?.data[datoCard].name} />) : (<img src={carta}
+									className='select--card--figure--img'
+									alt="sin imagen" />)}
 						</figure>
-						<button className='select--card--buton' onClick={() => {agregarCard(datoCard)}}>Agregar carta</button>
+						<button className='select--card--buton' onClick={() => { agregarCard(datoCard) }}>Agregar carta</button>
 					</div>
 
 				</section>
