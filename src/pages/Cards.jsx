@@ -33,8 +33,14 @@ function Cards() {
 	}
 
 	const agregarCard = (datoCard) => {
-		setMisCards([...misCards, datoCard]);
-		localStorage.setItem(datoCard, datoCard);
+		if(misCards.length >= 7){
+			console.log("error no puede agregar mas cartas");
+
+		}else{
+
+			setMisCards([...misCards, datoCard]);
+			localStorage.setItem(datoCard, datoCard);
+		}
 	}
 	console.log(misCards);
 	return (

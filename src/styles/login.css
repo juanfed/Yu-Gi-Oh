@@ -1,95 +1,109 @@
 .login {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #081C39;
-    opacity: .95;
-    color: #ffff;
-    width: 343px;
-    height: 490px;
-    border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #081c39;
+  opacity: 0.95;
+  color: #ffff;
+  width: 343px;
+  height: 490px;
+  border-radius: 10px;
 }
 
-.login--title{
-    font-size: 34px;
-    margin-bottom: 25px;
+.login--title {
+  font-size: 34px;
+  margin-bottom: 25px;
 }
 
 .login--datos {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .login--input {
-    border-radius: 15px;
-    width: 300px;
-    height: 45px;
-    font-size: 22px;
-    margin-bottom: 25px;
-    padding: 0rem 1rem;
+  border-radius: 15px;
+  width: 300px;
+  height: 45px;
+  font-size: 22px;
+  margin-bottom: 25px;
+  padding: 0rem 1rem;
 }
 
-.login--buton{
-    width: 145px;
-    height: 47px;
-    background-color: #00A3FF;
-    border-radius: 20px;
-    color: #ffff;
-    font-size: 26px;
-    margin-bottom: 25px;
+.login--buton {
+  width: 145px;
+  height: 47px;
+  background-color: #00a3ff;
+  border-radius: 20px;
+  color: #ffff;
+  font-size: 26px;
+  margin-bottom: 25px;
+}
+
+.login--buton:hover {
+  cursor: pointer;
+  border: 1px solid white;
+  transform: scale(1.05);
 }
 
 /*Estilos de google*/
 
-.google{
-    margin-bottom: 10px;
+.google {
+  margin-bottom: 10px;
 }
 
-.google--figure{
-    width: 300px;
-    height: 50px;
+.google--figure {
+  width: 300px;
+  height: 50px;
 }
 
-.google--figure:hover, .facebook:hover{
-    cursor: pointer;
-    transform: scale(1.05);
+.google--figure:hover,
+.facebook:hover {
+  cursor: pointer;
+  transform: scale(1.05);
 }
 
 .google--figure img {
-    width: 100%;
-    height: 100%;
-    border-radius: 15px;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
 }
 
-.facebook{
-    width: 300px;
-    height: 50px;
-    border-radius: 15px;
-    font-size: 1.2rem;
-    margin: .5rem 0rem;
-    background-color: #3b5998;
-    color: white;
-    font-size: 1.2rem;
+.facebook {
+  width: 300px;
+  height: 50px;
+  border-radius: 15px;
+  font-size: 1.2rem;
+  margin: 0.5rem 0rem;
+  background-color: #3b5998;
+  color: white;
+  font-size: 1.2rem;
 }
-
 
 /*Estilos del register*/
 
 .register {
-    text-align: center;
+  text-align: center;
 }
-.register p{
-    font-size: 21px;
-    margin-bottom: 25px;
+.register p {
+  font-size: 21px;
+  margin-bottom: 25px;
 }
 
-.register h4 {
-    text-decoration: underline;
-    text-decoration-color: blue;
-    font-size: 25px;
-}   
+.register button {
+  text-decoration: underline;
+  text-decoration-color: blue;
+  font-size: 25px;
+  background-color: #081c39;
+  color: white;
+}
+
+.register button:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  text-decoration-color: #00a3ff;
+}
 
 /* .Cart{
     display: block;
@@ -99,3 +113,92 @@
     
 
 } */
+
+/*--------------------------------------------------------*/
+
+.contact {
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 2rem;
+}
+
+#contact-wrapper{
+	width: 450px;
+	height: 550px;
+	margin-top: 4rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	border: 1px solid rgb(94, 94, 94);
+	-webkit-box-shadow: 10px 6px 42px 0px rgba(102, 102, 102, 0.69);
+	-moz-box-shadow: 10px 6px 42px 0px rgba(102, 102, 102, 0.69);
+	box-shadow: 10px 6px 42px 0px rgba(102, 102, 102, 0.69);
+	border-radius: 20px;
+	background-color: #081c39;
+	color: white;
+}
+
+.contact-titulo {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.contact-labels {
+  font-weight: 600;
+}
+
+.contact-inputs {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.contact-message--textarea {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.submit-input {
+  background-color: #3f93ca;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.cancel-input {
+  background-color: rgb(196, 39, 39);
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}

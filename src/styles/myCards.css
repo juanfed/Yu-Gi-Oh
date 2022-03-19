@@ -13,9 +13,6 @@
     justify-content: center;
 }
 
-.mycards--title{
-    margin-top: -4rem;
-}
 
 /*estilos de las cartas apiladas*/
 
@@ -119,14 +116,35 @@
     transform: rotateY(180deg);
 }
 
-.botones{
-    font-size: 1.5rem;
-    
+
+.form-mycards{
+    height: 2.5rem;
+    width: 45rem;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.botones button{
-    margin: .5rem;
-    padding: .2rem;
+.form-mycards select{
+    margin: 0 1rem;
+    font-size: 1rem;
+}
+
+.form-mycards button{
+    margin: 0rem .5rem;
+    padding: .3rem 1rem;
+    border-radius: 12px;
+    font-weight: 600;
+    background-color: #AB4995;
+    color: #ededed;
+}
+
+
+.form-mycards button:hover, .form-mycards select:hover{
+    cursor: pointer;
+}
+
+.form-mycards button:hover{
+    transform: scale(1.05);
+    border: 1px solid white;
 }

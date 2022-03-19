@@ -56,19 +56,19 @@ const MyCards = () => {
 					</Fragment>
 				))}
 			</section>
-			<form className='formulario' onSubmit={handleSubmit}>
+
+			<form className='form-mycards' onSubmit={handleSubmit}>
 				<select onChange={capturarCarta}>
 					<option value="">-- Seleccionar carta --</option>
 					{cartas.map((carta) => (
 						<option key={carta} value={carta}>{resultado.data?.data[carta].name}</option>
 					))}
 				</select>
-				<div className='botones'>
-					<button onClick={() => { eliminarCarta(captura) }} >Eliminar carta</button>
-					<button type='text' onClick={agregar}>Mostrar cartas</button>
-					<button type='text' onClick={borrarCartas}>Vaciar mazo</button>
-				</div>
+				<button onClick={() => { eliminarCarta(captura) }} >Eliminar carta</button>
+				<button type='text' onClick={agregar}>Mostrar cartas</button>
+				<button type='text' onClick={borrarCartas}>Vaciar mazo</button>
 			</form>
+
 		</main>
 	)
 }
