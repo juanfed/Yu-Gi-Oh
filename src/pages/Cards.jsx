@@ -5,9 +5,22 @@ import carta from '../images/reverseCard.jpg';
 // import fondoCards from '../assets/img7.jpg';
 
 function Cards() {
-	const [misCards, setMisCards] = useState({
-		cartas : []
-	});
+	let inicialState; 
+	try {
+		inicialState = localStorage.getItem('CARDS') ? JSON.parse(localStorage.getItem('CARDS')) :{
+			cartas:[]
+		}
+		
+	} catch (error) {
+		console.error(error)
+		inicialState = {
+			cartas:[]
+		}
+	}
+	const [misCards, setMisCards] = useState(
+		inicialState
+		);
+
 	const [datoCard, setDatoCard] = useState();
 	const [array, setArray] = useState([])
 
@@ -19,11 +32,13 @@ function Cards() {
 		}
 		setArray(arrays);
 	}
-
-
-	// localStorage.setItem('CARDS', JSON.stringify(misCards));
-
 	const [resultado, setResultado] = useState('');
+	useEffect(() => {
+		console.log(misCards);
+		localStorage.setItem('CARDS', JSON.stringify(misCards));
+	}, [misCards]);
+
+
 	useEffect(() => {
 		const traerCarta = async () => {
 			const result = await axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php`)
@@ -36,13 +51,16 @@ function Cards() {
 	const mostrarDatos = (card) => {
 		setDatoCard(card)
 	}
-
 	const agregarCard = (datoCard) => {
-		
-		setMisCards(misCards.cartas = [...misCards.cartas, datoCard]);
-		console.log(misCards)
-		console.log(misCards.cartas);
-
+		if(misCards.cartas === undefined){
+			setMisCards({
+				cartas : []
+			})
+		}else if(misCards.cartas.length <= 6){
+			setMisCards({ cartas: [...misCards.cartas, datoCard] });
+		}else{
+			alert("ya no puede agregar mas cartas, no sea imbesil")
+		}
 	}
 	return (
 		<main className='main--cards'>
@@ -76,7 +94,7 @@ function Cards() {
 						</figure>
 						<button className='select--card--buton' onClick={() => { agregarCard(datoCard) }}>Agregar carta</button>
 					</div>
-									{/* <button onClick={()=>{
+					{/* <button onClick={()=>{
 										localStorage.clear()
 									}}>Vaciar local store</button> */}
 				</section>
