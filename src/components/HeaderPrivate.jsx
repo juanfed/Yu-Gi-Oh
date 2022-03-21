@@ -14,9 +14,9 @@ const HeaderPrivate = () => {
             </div>
         </header>
         <ul className='header--menu'>
-            <Link to="/admin/mycards"><li>Mis cartas</li></Link>
             <Link to="/admin/cards"><li>Generador de Cartas</li></Link>
-            <Link to="#"><li>Perfil</li></Link>
+            <Link to="/admin/mycards"><li>Mis cartas</li></Link>
+            <Link to="/admin/profile"><li>Perfil</li></Link>
             <Link to="/admin/contact"><li>Contacto</li></Link>
         </ul>
         </>

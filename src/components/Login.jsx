@@ -8,17 +8,38 @@ import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 import { useNavigate } from "react-router-dom" // version 6
 const Login = () => {
+
+	const profile = {
+		name : '',
+		email : '',
+		photo : ''
+	}
+
 	useNavigate();
 	const navigate = useNavigate();
 	const responseGoogle = (sucsess) => {
-		console.log(sucsess);
-		console.log(sucsess.profileObj);
-		navigate('/admin/cards');
-
+		profile.name = sucsess.profileObj.name; // nombre
+		profile.email = sucsess.profileObj.email; // email
+		profile.photo = sucsess.profileObj.imageUrl; // photo
+		localStorage.setItem('INFORMATION', JSON.stringify(profile))
+		alert("Su ingreso con google ha sido exitoso")
+		setTimeout(() => {
+			navigate('/admin/cards');
+		}, 1000)
+		
+		
 	}
-
+	
+	const fallo = () => {
+		console.error("Error al registrar con google");
+		console.aler("fallo al loguearse con google");
+	}
+	
 	const responseFacebook = (response) => {
-		console.log(response);
+		profile.name =response.name; // name
+		profile.email = response.email; // email
+		profile.photo = response.picture.data.url; // foto
+		localStorage.setItem('INFORMATION', JSON.stringify(profile))
 		navigate('/admin/cards');
 	}
 
@@ -94,7 +115,7 @@ const Login = () => {
 
 							)}
 							onSuccess={responseGoogle}
-							onFailure={responseGoogle}
+							onFailure={fallo}
 							cookiePolicy={'single_host_origin'}
 						/>
 

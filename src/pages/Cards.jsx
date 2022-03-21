@@ -5,7 +5,9 @@ import carta from '../images/reverseCard.jpg';
 // import fondoCards from '../assets/img7.jpg';
 
 function Cards() {
-	const [misCards, setMisCards] = useState([]);
+	const [misCards, setMisCards] = useState({
+		cartas : []
+	});
 	const [datoCard, setDatoCard] = useState();
 	const [array, setArray] = useState([])
 
@@ -17,6 +19,9 @@ function Cards() {
 		}
 		setArray(arrays);
 	}
+
+
+	// localStorage.setItem('CARDS', JSON.stringify(misCards));
 
 	const [resultado, setResultado] = useState('');
 	useEffect(() => {
@@ -33,16 +38,12 @@ function Cards() {
 	}
 
 	const agregarCard = (datoCard) => {
-		if(misCards.length >= 7){
-			console.log("error no puede agregar mas cartas");
+		
+		setMisCards(misCards.cartas = [...misCards.cartas, datoCard]);
+		console.log(misCards)
+		console.log(misCards.cartas);
 
-		}else{
-
-			setMisCards([...misCards, datoCard]);
-			localStorage.setItem(datoCard, datoCard);
-		}
 	}
-	console.log(misCards);
 	return (
 		<main className='main--cards'>
 			<div className='main--cards--buton'>
