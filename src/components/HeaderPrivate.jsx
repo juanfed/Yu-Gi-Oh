@@ -1,16 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
-
+import { Link, useNavigate } from 'react-router-dom';
 import '../styles/headerPrivate.css';
 
 const HeaderPrivate = () => {
+    useNavigate();
+    const navigate = useNavigate();
+    const salir = () =>{
+        setTimeout(()=>{
+            navigate("/Yu-Gi-Oh")
+        }, 500)
+    }
     return (
         <>
         <header className='header'>
             <h1 className="header--title">Yu-Gi-Oh!</h1>
             <div className='header--buton'>
-            <button className='header--buton--buton'>Sing Out</button>
+            <button className='header--buton--buton' onClick={salir}>Sing Out</button>
             </div>
         </header>
         <ul className='header--menu'>

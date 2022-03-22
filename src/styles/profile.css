@@ -1,0 +1,46 @@
+.profile{
+    margin: 5rem 30% 0 30%;
+    height: 32rem;
+    border-radius: 20px;
+}
+.profile--form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    height: 32rem;
+    border-radius: 20px;
+    box-shadow: 2px 2px 12px 2px black;
+}
+
+.profile--form input{
+    font-size: 1.2rem;
+    padding: .2rem .2rem;
+
+}
+
+.profile--form label{
+    font-size: 1.2rem;
+    margin-right: 1rem;
+    font-weight: 600;
+}
+
+.profile--form label:hover{
+    cursor: pointer;
+    font-size: 1.3rem;
+}
+
+.profile-buton{
+    padding: .5rem 1.8rem;
+    font-size: 1.3rem;
+    background-color:#AB4995;
+    color: #ededed;
+    border-radius: 15px;
+    font-weight: 600;
+}
+
+.profile-buton:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
