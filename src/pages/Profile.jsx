@@ -36,7 +36,8 @@ const Profile = () => {
 					</div>
 					<div className='profile--form--icons'>
 						<label htmlFor="whatsap">Whatsapp:</label>
-						<input type="number" placeholder={localStorage.getItem('number')} id='whatsapp' value={number} onChange={numero} />
+						<input type="number" placeholder={localStorage.getItem('number')} id='whatsapp' 
+						value={number} onChange={numero} />
 					</div>
 					<div className='profile--form--icons'>
 						<button type='text' className='profile-buton' onClick={save}>Guardar Cambios</button>

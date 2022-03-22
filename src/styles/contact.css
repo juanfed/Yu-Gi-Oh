@@ -1,4 +1,14 @@
-.contact{
+.main-contacto{
+  background-image: url("../images/profile.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  height: 85vh;
+  margin-top: 5rem;
+}
+
+.contact {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -8,6 +18,7 @@
 }
 
 .contact-wrapper {
+  background-color: #ededed;
   width: 500px;
   height: 500px;
   display: flex;
@@ -15,29 +26,29 @@
   justify-content: center;
   flex-direction: column;
   border: 1px solid rgb(94, 94, 94);
-  -webkit-box-shadow: 10px 6px 42px 0px rgba(102,102,102,0.69);
-  -moz-box-shadow: 10px 6px 42px 0px rgba(102,102,102,0.69);
-  box-shadow: 10px 6px 42px 0px rgba(102,102,102,0.69);
+  -webkit-box-shadow: 10px 6px 42px 0px rgba(102, 102, 102, 0.69);
+  -moz-box-shadow: 10px 6px 42px 0px rgba(102, 102, 102, 0.69);
+  box-shadow: 10px 6px 42px 0px rgba(102, 102, 102, 0.69);
   border-radius: 20px;
 }
 
-.contact-title{
+.contact-title {
   margin-top: -2.5rem;
   margin-bottom: 2.5rem;
   font-size: 2rem;
 }
 
-.contact-form{
+.contact-form {
   display: flex;
   flex-direction: column;
   width: 300px;
 }
 
-.contact-labels{
+.contact-labels {
   font-weight: 600;
 }
 
-.contact-inputs{
+.contact-inputs {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -47,7 +58,7 @@
   box-sizing: border-box;
 }
 
-.contact-message--textarea{
+.contact-message--textarea {
   margin-top: 0.5rem;
   margin-bottom: 1rem;
   border: 1px solid rgb(0, 0, 0);
@@ -55,7 +66,7 @@
   box-sizing: border-box;
 }
 
-.submit-input{
+.submit-input {
   background-color: #3f93ca;
   border: none;
   color: white;
