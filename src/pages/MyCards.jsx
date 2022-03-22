@@ -1,43 +1,46 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
 import '../styles/myCards.css';
 import cartaReverse from '../images/reverseCard.jpg';
 import Card from '../components/Card';
-
+import { consultarMyCardsAction } from '../redux/action/consultarAction';
 
 const MyCards = () => {
+	let dispatch = useDispatch();
 	let inicialState; 
+
+	// Hooks
+	const { resultMy } = useSelector((state) => state.info);
+
+	const [captura, setCaptura] = useState('');
+	const [title, setTitle] = useState(false);
+
 	try {
 		inicialState = localStorage.getItem('CARDS') ? JSON.parse(localStorage.getItem('CARDS')) :{
 			cartas:[]
 		}
+		
 	} catch (error) {
 		console.error(error)
 		inicialState = {
 			cartas:[]
 		}
 	}
-	const [cartas, setCartas] = useState(
-		inicialState
-		);
-	const [resultado, setResultado] = useState([]);
-	const [captura, setCaptura] = useState('');
-	const [title, setTitle] = useState(false);
+
 	useEffect(() => {
-		const traerCarta = async () => {
-			const result = await axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php`);
-			setResultado(result);
-		}
-		traerCarta()
-		// eslint-disable-next-line react-hooks/exhaustive-deps
+		dispatch(consultarMyCardsAction());
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 	
-	let dato = JSON.parse(localStorage.getItem("CARDS"));
-	const [card, setCard] = useState(dato.cartas);
+	const [card, setCard] = useState(inicialState);
 
 	const eliminarCarta = (captura) => {
-		setCard(card.filter(x => x !== Number(captura)))
-		console.log(card);
+//		setCard(card.cartas.filter(x => x !== Number(captura)))
+		let filtrado = card.cartas.filter(x => x !== Number(captura));
+		console.log('FILTR', filtrado);
+		setCard({ cartas: filtrado});
+
+		localStorage.setItem('CARDS', JSON.stringify({ cartas: filtrado}));
 	}
 
 	const capturarCarta = e => {
@@ -49,29 +52,27 @@ const MyCards = () => {
 	}
 
 	const borrarCartas = () => {
-		setCartas({
-			cartas : []
-		});
-		setCard([])
-		localStorage.setItem('CARDS', JSON.stringify(card));
-		console.log(card);
+		localStorage.setItem('CARDS', JSON.stringify({
+			cartas:[]
+		}));
+		setCard({ cartas: []});
 	}
+
+	console.log(card.cartas);
 	return (
 		<main className='mycards'>
 			<h2 className='mycards--title'>Mi mazo personalizado</h2>
 			{title ? <section className='cartas'>
-				{card.map((carta, indice) => (
+				{card.cartas.map((carta, indice) => (
 					<Fragment key={indice}>
-						<Card carta={carta} resultado={resultado} cartaReverse={cartaReverse} indice={indice} />
+						<Card carta={carta} resultado={resultMy} cartaReverse={cartaReverse} indice={indice} />
 					</Fragment>
 				))}
 			</section> : <button type='text' onClick={() => {
-				setCard([])
-				let dato = JSON.parse(localStorage.getItem("CARDS"));
-				setCard(dato.cartas)
-				if(card.length == 0){
+				setCard(inicialState)
+				if(card.cartas.length === 0){
 					setTitle(false)
-					alert("No tiene ninguna carta pendejo")
+					alert("No tiene ninguna carta")
 				}else{
 					setTitle(true)
 				}
@@ -80,9 +81,11 @@ const MyCards = () => {
 			<form className='form-mycards' onSubmit={handleSubmit}>
 				<select onChange={capturarCarta}>
 					<option value="">-- Seleccionar carta --</option>
-					{title ? <>{card.map((carta) => (
-						<option key={carta} value={carta}>{resultado.data?.data[carta].name}</option>
-					))}</> : null}
+					{title ? <>{card.cartas.map((carta) => {
+						return (
+							<option key={carta} value={carta}>{resultMy[carta].name}</option>
+						)
+					})}</> : null}
 				</select>
 				<button onClick={() => { eliminarCarta(captura) }} >Eliminar carta</button>
 				<button type='text' onClick={borrarCartas}>Vaciar mazo</button>

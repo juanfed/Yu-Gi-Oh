@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
 import '../styles/cards.css';
 import carta from '../images/reverseCard.jpg';
 // import fondoCards from '../assets/img7.jpg';
+import { consultarAction } from '../redux/action/consultarAction';
 
 function Cards() {
+	let dispatch = useDispatch();
 	let inicialState; 
+
+	// Redux
+	const { result } = useSelector((state) => state.info);
+
 	try {
 		inicialState = localStorage.getItem('CARDS') ? JSON.parse(localStorage.getItem('CARDS')) :{
 			cartas:[]
@@ -32,7 +38,6 @@ function Cards() {
 		}
 		setArray(arrays);
 	}
-	const [resultado, setResultado] = useState('');
 	useEffect(() => {
 		console.log(misCards);
 		localStorage.setItem('CARDS', JSON.stringify(misCards));
@@ -40,12 +45,7 @@ function Cards() {
 
 
 	useEffect(() => {
-		const traerCarta = async () => {
-			const result = await axios.get(`https://db.ygoprodeck.com/api/v7/cardinfo.php`)
-			setResultado(result);
-		}
-		traerCarta()
-		// eslint-disable-next-line react-hooks/exhaustive-deps
+		dispatch(consultarAction());
 	}, [])
 
 	const mostrarDatos = (card) => {
@@ -59,7 +59,7 @@ function Cards() {
 		}else if(misCards.cartas.length <= 6){
 			setMisCards({ cartas: [...misCards.cartas, datoCard] });
 		}else{
-			alert("ya no puede agregar mas cartas, no sea imbesil")
+			alert("ya no puede agregar mas cartas")
 		}
 	}
 	return (
@@ -75,9 +75,9 @@ function Cards() {
 							onClick={() => { mostrarDatos(card) }}
 							key={card}>
 							<figure className='card--figure'>
-								<img src={resultado.data?.data[card].card_images[0].image_url}
+								<img src={result[card].card_images[0].image_url}
 									className='card--figure--img'
-									alt={resultado.data?.data[card].name} />
+									alt={result[card].name} />
 							</figure>
 						</div>
 					))}
@@ -86,9 +86,9 @@ function Cards() {
 				<section className='select--card'>
 					<div className='select--card--div'>
 						<figure className='select--card--figure'>
-							{datoCard ? (<img src={resultado.data?.data[datoCard].card_images[0].image_url}
+							{datoCard ? (<img src={result[datoCard].card_images[0].image_url}
 								className='select--card--figure--img'
-								alt={resultado.data?.data[datoCard].name} />) : (<img src={carta}
+								alt={result[datoCard].name} />) : (<img src={carta}
 									className='select--card--figure--img'
 									alt="sin imagen" />)}
 						</figure>

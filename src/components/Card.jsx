@@ -12,7 +12,7 @@ const Card = ({carta, cartaReverse, resultado, indice}) => {
     }
     return (
         <div className={`carta${indice} carta`} onClick={mostrarCarta}>
-            {mostrar ? <img src={resultado.data?.data[carta].card_images[0].image_url} alt="carta 1" /> :
+            {mostrar ? <img src={resultado[carta].card_images[0].image_url} alt="carta 1" /> :
                 <img src={cartaReverse} alt="carta 1" />}
         </div>
     )
