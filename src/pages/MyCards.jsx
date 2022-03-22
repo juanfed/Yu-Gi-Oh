@@ -7,7 +7,7 @@ import { consultarMyCardsAction } from '../redux/action/consultarAction';
 
 const MyCards = () => {
 	let dispatch = useDispatch();
-	let inicialState; 
+	let inicialState;
 
 	// Hooks
 	const { resultMy } = useSelector((state) => state.info);
@@ -16,31 +16,31 @@ const MyCards = () => {
 	const [title, setTitle] = useState(false);
 
 	try {
-		inicialState = localStorage.getItem('CARDS') ? JSON.parse(localStorage.getItem('CARDS')) :{
-			cartas:[]
+		inicialState = localStorage.getItem('CARDS') ? JSON.parse(localStorage.getItem('CARDS')) : {
+			cartas: []
 		}
-		
+
 	} catch (error) {
 		console.error(error)
 		inicialState = {
-			cartas:[]
+			cartas: []
 		}
 	}
 
 	useEffect(() => {
 		dispatch(consultarMyCardsAction());
-	// eslint-disable-next-line react-hooks/exhaustive-deps
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
-	
+
 	const [card, setCard] = useState(inicialState);
 
 	const eliminarCarta = (captura) => {
-//		setCard(card.cartas.filter(x => x !== Number(captura)))
+		//		setCard(card.cartas.filter(x => x !== Number(captura)))
 		let filtrado = card.cartas.filter(x => x !== Number(captura));
 		console.log('FILTR', filtrado);
-		setCard({ cartas: filtrado});
+		setCard({ cartas: filtrado });
 
-		localStorage.setItem('CARDS', JSON.stringify({ cartas: filtrado}));
+		localStorage.setItem('CARDS', JSON.stringify({ cartas: filtrado }));
 	}
 
 	const capturarCarta = e => {
@@ -53,9 +53,9 @@ const MyCards = () => {
 
 	const borrarCartas = () => {
 		localStorage.setItem('CARDS', JSON.stringify({
-			cartas:[]
+			cartas: []
 		}));
-		setCard({ cartas: []});
+		setCard({ cartas: [] });
 	}
 
 	console.log(card.cartas);
@@ -68,15 +68,17 @@ const MyCards = () => {
 						<Card carta={carta} resultado={resultMy} cartaReverse={cartaReverse} indice={indice} />
 					</Fragment>
 				))}
-			</section> : <button type='text' onClick={() => {
-				setCard(inicialState)
-				if(card.cartas.length === 0){
-					setTitle(false)
-					alert("No tiene ninguna carta")
-				}else{
-					setTitle(true)
-				}
-			}}>Ver cartas</button> }
+			</section> : <div className='mycards--mostrar'>
+				<button type='text' onClick={() => {
+					setCard(inicialState)
+					if (card.cartas.length === 0) {
+						setTitle(false)
+						alert("No tiene ninguna carta")
+					} else {
+						setTitle(true)
+					}
+				}}>Ver cartas</button>
+			</div>}
 
 			<form className='form-mycards' onSubmit={handleSubmit}>
 				<select onChange={capturarCarta}>
