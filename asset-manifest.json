@@ -1,19 +1,20 @@
 {
   "files": {
-    "main.css": "/Yu-Gi-Oh/static/css/main.b639d315.css",
-    "main.js": "/Yu-Gi-Oh/static/js/main.5280131c.js",
+    "main.css": "/Yu-Gi-Oh/static/css/main.6a5f56d9.css",
+    "main.js": "/Yu-Gi-Oh/static/js/main.c50c47a1.js",
     "static/media/reverseCard.jpg": "/Yu-Gi-Oh/static/media/reverseCard.f40f54c5332cc5809e69.jpg",
     "static/media/img7.jpg": "/Yu-Gi-Oh/static/media/img7.72cfa92b3f7c536b5fda.jpg",
+    "static/media/profile.jpg": "/Yu-Gi-Oh/static/media/profile.ecfea635fc8ac9869a8b.jpg",
     "static/media/img1.jpg": "/Yu-Gi-Oh/static/media/img1.d59dbf3d40550613c0b5.jpg",
     "static/media/img3.jpg": "/Yu-Gi-Oh/static/media/img3.125c1b2bec57dfc8ebea.jpg",
     "static/media/error2.jpg": "/Yu-Gi-Oh/static/media/error2.09af7781210d6b44d813.jpg",
     "static/media/loginGoogle.png": "/Yu-Gi-Oh/static/media/loginGoogle.2f294eff234fcaa675cc.png",
     "index.html": "/Yu-Gi-Oh/index.html",
-    "main.b639d315.css.map": "/Yu-Gi-Oh/static/css/main.b639d315.css.map",
-    "main.5280131c.js.map": "/Yu-Gi-Oh/static/js/main.5280131c.js.map"
+    "main.6a5f56d9.css.map": "/Yu-Gi-Oh/static/css/main.6a5f56d9.css.map",
+    "main.c50c47a1.js.map": "/Yu-Gi-Oh/static/js/main.c50c47a1.js.map"
   },
   "entrypoints": [
-    "static/css/main.b639d315.css",
-    "static/js/main.5280131c.js"
+    "static/css/main.6a5f56d9.css",
+    "static/js/main.c50c47a1.js"
   ]
 }
