@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import '../styles/cards.css';
 import carta from '../images/reverseCard.jpg';
-// import fondoCards from '../assets/img7.jpg';
 import { consultarAction } from '../redux/action/consultarAction';
 
 function Cards() {
@@ -32,8 +31,8 @@ function Cards() {
 
 	const consultar = () => {
 		let arrays = [];
-		for (let i = 0; i < 8; i++) {
-			let numero = Math.round(Math.random() * 9000);
+		for (let i = 0; i < 12; i++) {
+			let numero = Math.round(Math.random() * 9999);
 			arrays.push(numero)
 		}
 		setArray(arrays);
@@ -46,6 +45,7 @@ function Cards() {
 
 	useEffect(() => {
 		dispatch(consultarAction());
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
 	const mostrarDatos = (card) => {

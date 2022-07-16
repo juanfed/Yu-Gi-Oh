@@ -1,7 +1,22 @@
 .profile{
-    margin: 5rem 30% 0 30%;
+    background-image: url("../images/imagenProfile.jpg");
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-card{
+    margin-top: -8rem;
     height: 32rem;
+    width: 32rem;
     border-radius: 20px;
+    background-color: #F2F2F2;
+    opacity: .9;
 }
 .profile--form{
     display: flex;
