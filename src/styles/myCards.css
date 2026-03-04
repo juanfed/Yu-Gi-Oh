@@ -3,8 +3,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    background-attachment: fixed;
-    height: 100vh;
+    min-height: 100vh;
     color: white;
     text-align: center;
     display: flex;
