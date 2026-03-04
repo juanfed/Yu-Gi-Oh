@@ -5,16 +5,18 @@ import emailjs from "emailjs-com";
 function Contact() {
   function sendEmail(e) {
     e.preventDefault();
-    e.target.reset()
 
     emailjs.sendForm(
       "service_e2cysa3",
       "template_obw2fjh",
       e.target,
       "81Suy7vVIG6msJ5j7"
-    ).then(res => {
-      console.log(res);
-    }).catch(err => console.log(err));
+    ).then(() => {
+      alert("Mensaje enviado correctamente");
+      e.target.reset();
+    }).catch(() => {
+      alert("Error al enviar el mensaje");
+    });
   }
     return (
     <main className="main-contacto">

@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import google from '../assets/loginGoogle.png';
 import '../styles/login.css';
 
@@ -15,7 +15,6 @@ const Login = () => {
 		photo : ''
 	}
 
-	useNavigate();
 	const navigate = useNavigate();
 	const responseGoogle = (sucsess) => {
 		profile.name = sucsess.profileObj.name; // nombre
@@ -32,7 +31,7 @@ const Login = () => {
 	
 	const fallo = () => {
 		console.error("Error al registrar con google");
-		console.aler("fallo al loguearse con google");
+		alert("Fallo al loguearse con Google");
 	}
 	
 	const responseFacebook = (response) => {
@@ -45,7 +44,7 @@ const Login = () => {
 
 	const [registro, setRegistro] = useState(false);
 	return (
-		<Fragment>
+		<>
 			{registro ?
 				<div className="contact">
 					<div id="contact-wrapper">
@@ -135,7 +134,7 @@ const Login = () => {
 
 				</div>
 			}
-		</Fragment>
+		</>
 	)
 }
 

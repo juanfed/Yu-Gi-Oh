@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import '../styles/headerPrivate.css';
 
 const HeaderPrivate = () => {
-    useNavigate();
     const navigate = useNavigate();
     const salir = () =>{
         setTimeout(()=>{
@@ -19,10 +18,10 @@ const HeaderPrivate = () => {
             </div>
         </header>
         <ul className='header--menu'>
-            <Link to="/admin/cards"><li>Generador de Cartas</li></Link>
-            <Link to="/admin/mycards"><li>Mis cartas</li></Link>
-            <Link to="/admin/profile"><li>Perfil</li></Link>
-            <Link to="/admin/contact"><li>Contacto</li></Link>
+            <li><Link to="/admin/cards">Generador de Cartas</Link></li>
+            <li><Link to="/admin/mycards">Mis cartas</Link></li>
+            <li><Link to="/admin/profile">Perfil</Link></li>
+            <li><Link to="/admin/contact">Contacto</Link></li>
         </ul>
         </>
     )

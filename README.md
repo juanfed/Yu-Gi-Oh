@@ -1,70 +1,144 @@
-# Getting Started with Create React App
+# Yu-Gi-Oh Card Manager
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Aplicacion web desarrollada como proyecto de aprendizaje personal para aplicar y afianzar conocimientos en **JavaScript** y **React**. A lo largo del desarrollo explore conceptos como manejo de estado global con Redux, consumo de APIs REST, autenticacion con OAuth, enrutamiento con React Router y persistencia de datos con localStorage.
 
-## Available Scripts
+La app permite iniciar sesion, explorar cartas de Yu-Gi-Oh obtenidas desde una API publica, armar tu propio mazo personal y gestionar tu perfil de usuario.
 
-In the project directory, you can run:
+> Demo en vivo: [https://juanfed.github.io/Yu-Gi-Oh](https://juanfed.github.io/Yu-Gi-Oh)
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tecnologias utilizadas
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+| Tecnologia | Uso |
+|---|---|
+| React 17 | Framework principal de UI |
+| Redux + Redux Thunk | Manejo de estado global y acciones asincronas |
+| React Router DOM v6 | Enrutamiento y rutas protegidas |
+| Axios | Consumo de la API de cartas |
+| React Google Login | Autenticacion con Google OAuth |
+| React Facebook Login | Autenticacion con Facebook OAuth |
+| EmailJS | Envio de mensajes desde el formulario de contacto |
+| CSS puro | Estilos personalizados por pagina |
+| localStorage | Persistencia de mazo, perfil y sesion |
+| GitHub Pages | Deploy de la aplicacion |
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Funcionalidades
 
-### `npm run build`
+- **Login** con cuenta de Google o Facebook
+- **Explorar cartas** aleatorias obtenidas de la [YGOProDeck API](https://db.ygoprodeck.com/api-guide/)
+- **Armar mazo** agregando hasta 6 cartas a tu coleccion personal
+- **Mi mazo** — ver, gestionar y eliminar cartas de tu coleccion
+- **Perfil** — visualizar datos del usuario y guardar numero de WhatsApp
+- **Contacto** — formulario funcional con envio de emails via EmailJS
+- Rutas privadas protegidas que redirigen al login si no hay sesion activa
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Estructura de carpetas
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+Yu-Gi-Oh/
+├── public/
+│   ├── index.html
+│   └── favicon.ico
+└── src/
+    ├── assets/            # Imagenes estaticas (logo de login, etc.)
+    ├── components/        # Componentes reutilizables
+    │   ├── Card.jsx       # Componente de carta individual
+    │   ├── Header.jsx     # Header publico
+    │   ├── HeaderPrivate.jsx
+    │   ├── Footer.jsx
+    │   ├── Login.jsx
+    │   ├── Register.jsx
+    │   └── NoFound.jsx    # Pagina 404
+    ├── images/            # Imagenes de la app
+    ├── Layouts/
+    │   └── Private.jsx    # Layout protegido (rutas admin)
+    ├── pages/             # Paginas principales
+    │   ├── Home.jsx       # Landing / Login
+    │   ├── Cards.jsx      # Explorador de cartas
+    │   ├── MyCards.jsx    # Mazo personal
+    │   ├── Profile.jsx    # Perfil del usuario
+    │   └── Contact.jsx    # Formulario de contacto
+    ├── redux/             # Manejo de estado global
+    │   ├── store.js
+    │   ├── action/
+    │   │   └── consultarAction.js
+    │   ├── reducers/
+    │   │   ├── index.js
+    │   │   └── consultarReducer.js
+    │   └── types/
+    │       └── index.js
+    ├── styles/            # Archivos CSS por pagina
+    ├── App.js             # Rutas y estructura principal
+    └── index.js           # Punto de entrada
+```
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Como correr el proyecto en local
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Requisitos previos
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- [Node.js](https://nodejs.org/) v14 o superior
+- npm (viene incluido con Node.js)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Pasos
 
-## Learn More
+**1. Clonar el repositorio**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+git clone https://github.com/juanfed/Yu-Gi-Oh.git
+cd Yu-Gi-Oh
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**2. Instalar dependencias**
 
-### Code Splitting
+```bash
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**3. Iniciar el servidor de desarrollo**
 
-### Analyzing the Bundle Size
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+La aplicacion se abrira automaticamente en [http://localhost:3000](http://localhost:3000).
 
-### Making a Progressive Web App
+### Scripts disponibles
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+| Comando | Descripcion |
+|---|---|
+| `npm start` | Inicia la app en modo desarrollo |
+| `npm run build` | Genera el build de produccion en `/build` |
+| `npm test` | Ejecuta los tests |
+| `npm run deploy` | Despliega en GitHub Pages |
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Notas
 
-### Deployment
+- La autenticacion con Google y Facebook usa OAuth pero **no tiene backend propio** — los datos de sesion se guardan en `localStorage`.
+- El mazo personal tambien se persiste en `localStorage`, por lo que los datos se mantienen entre sesiones en el mismo navegador.
+- La API de cartas utilizada es publica y no requiere API key: [YGOProDeck](https://db.ygoprodeck.com/api-guide/).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## Aprendizajes aplicados
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Este proyecto fue una oportunidad para practicar de forma real:
+
+- Arquitectura de componentes en React (contenedores vs presentacionales)
+- Flujo unidireccional de datos con Redux
+- Manejo de side effects asincronos con Redux Thunk
+- Proteccion de rutas con React Router v6
+- Integracion de servicios externos (OAuth, EmailJS)
+- Deploy continuo con GitHub Pages
+
+---
+
+*Proyecto personal de aprendizaje — Juan Fernando y Federico*

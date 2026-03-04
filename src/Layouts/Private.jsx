@@ -1,16 +1,20 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+import { Outlet, Navigate } from 'react-router-dom'
 import Footer from '../components/Footer'
 import HeaderPrivate from '../components/HeaderPrivate'
 
-const autenticado = true;
 const Private = () => {
+	const autenticado = localStorage.getItem('INFORMATION') !== null;
+
+	if (!autenticado) {
+		return <Navigate to="/Yu-Gi-Oh" replace />;
+	}
+
 	return (
 		<div>
-			{autenticado ? (<div>
-				<HeaderPrivate />
-				<Outlet />
-				<Footer /> </div>) : (<h1>No esta autorizado</h1>)}
+			<HeaderPrivate />
+			<Outlet />
+			<Footer />
 		</div>
 	)
 }

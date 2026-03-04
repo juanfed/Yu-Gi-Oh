@@ -1,16 +1,16 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import '../styles/myCards.css';
 import cartaReverse from '../images/reverseCard.jpg';
 import Card from '../components/Card';
-import { consultarMyCardsAction } from '../redux/action/consultarAction';
+import { consultarAction } from '../redux/action/consultarAction';
 
 const MyCards = () => {
 	let dispatch = useDispatch();
 	let inicialState;
 
 	// Hooks
-	const { resultMy } = useSelector((state) => state.info);
+	const { result } = useSelector((state) => state.info);
 
 	const [captura, setCaptura] = useState('');
 	const [title, setTitle] = useState(false);
@@ -28,7 +28,7 @@ const MyCards = () => {
 	}
 
 	useEffect(() => {
-		dispatch(consultarMyCardsAction());
+		dispatch(consultarAction());
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
@@ -37,7 +37,6 @@ const MyCards = () => {
 	const eliminarCarta = (captura) => {
 		//		setCard(card.cartas.filter(x => x !== Number(captura)))
 		let filtrado = card.cartas.filter(x => x !== Number(captura));
-		console.log('FILTR', filtrado);
 		setCard({ cartas: filtrado });
 
 		localStorage.setItem('CARDS', JSON.stringify({ cartas: filtrado }));
@@ -58,15 +57,12 @@ const MyCards = () => {
 		setCard({ cartas: [] });
 	}
 
-	console.log(card.cartas);
 	return (
 		<main className='mycards'>
 			<h2 className='mycards--title'>Mi mazo personalizado</h2>
 			{title ? <section className='cartas'>
 				{card.cartas.map((carta, indice) => (
-					<Fragment key={indice}>
-						<Card carta={carta} resultado={resultMy} cartaReverse={cartaReverse} indice={indice} />
-					</Fragment>
+					<Card key={indice} carta={carta} resultado={result} cartaReverse={cartaReverse} indice={indice} />
 				))}
 			</section> : <div className='mycards--mostrar'>
 				<button type='text' onClick={() => {
@@ -85,7 +81,7 @@ const MyCards = () => {
 					<option value="">-- Seleccionar carta --</option>
 					{title ? <>{card.cartas.map((carta) => {
 						return (
-							<option key={carta} value={carta}>{resultMy[carta].name}</option>
+							<option key={carta} value={carta}>{result[carta].name}</option>
 						)
 					})}</> : null}
 				</select>

@@ -5,7 +5,6 @@ import '../styles/profile.css';
 const Profile = () => {
 	const [number, setNumber] = useState('')
 	const dataProfile = (JSON.parse(localStorage.getItem('INFORMATION')))
-	console.log(dataProfile);
 	const save = () => {
 		localStorage.setItem('number', number)
 		alert("Datos guardados")
@@ -17,10 +16,8 @@ const Profile = () => {
 
 	const numero = (e) => {
 		setNumber(e.target.value)
-		console.log(`numero: ${number}`);
 	}
 
-	console.log(localStorage.getItem('number'));
 	return (
 		<>
 			<main className='profile'>

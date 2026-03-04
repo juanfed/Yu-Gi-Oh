@@ -38,7 +38,6 @@ function Cards() {
 		setArray(arrays);
 	}
 	useEffect(() => {
-		console.log(misCards);
 		localStorage.setItem('CARDS', JSON.stringify(misCards));
 	}, [misCards]);
 
@@ -94,14 +93,9 @@ function Cards() {
 						</figure>
 						<button className='select--card--buton' onClick={() => { agregarCard(datoCard) }}>Agregar carta</button>
 					</div>
-					{/* <button onClick={()=>{
-										localStorage.clear()
-									}}>Vaciar local store</button> */}
-				</section>
+					</section>
 
-				<br /><br /><br /><br />
-
-			</div>
+				</div>
 		</main>
 	)
 }
